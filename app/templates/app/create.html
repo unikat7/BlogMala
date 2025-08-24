@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}
+
+नयाँ ब्लग सिर्जना
+{% endblock title %}
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-lg" style="width: 500px; border-radius: 15px; background-color: #ffffff;">
+    <h2 class="text-center mb-4" style="color: #000000; font-family: 'Karma', serif;">
+      नयाँ ब्लग सिर्जना गर्नुहोस्</h2>
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="imageUpload" class="form-label fw-bold" style="color: #000000;">छवि अपलोड गर्नुहोस्</label>
+        <input type="file" name="image" id="imageUpload" class="form-control bg-white text-dark">
+      </div>
+
+      <div class="mb-3">
+        <label for="blogTitle" class="form-label fw-bold" style="color: #000000;">शीर्षक</label>
+        <input type="text" name="title" id="blogTitle" class="form-control bg-white text-dark" placeholder="ब्लगको शीर्षक लेख्नुहोस्" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="blogSubtitle" class="form-label fw-bold" style="color: #000000;">उपशीर्षक</label>
+        <input type="text" name="subtitle" id="blogSubtitle" class="form-control bg-white text-dark" placeholder="ब्लगको उपशीर्षक लेख्नुहोस्" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="blogDescription" class="form-label fw-bold" style="color: #000000;">विवरण</label>
+        <textarea name="description" id="blogDescription" class="form-control bg-white text-dark" rows="4" placeholder="ब्लगको विवरण लेख्नुहोस्" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-lg btn-info w-100" style="color: #ffffff; font-weight: bold;">
+        पेश गर्नुहोस्
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

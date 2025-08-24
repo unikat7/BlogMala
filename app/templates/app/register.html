@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+
+साइन अप 
+{% endblock title %}
+{% block content %}
+
+{% if messages %}
+<div class="mb-3">
+  {% for m in messages %}
+  <p class="alert alert-warning">{{ m }}</p>
+  {% endfor %}
+</div>
+{% endif %}
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="card shadow-lg p-3 bg-light" style="width: 400px; border-radius: 15px;">
+    <h2 class="text-center text-dark mb-4">साइन अप गर्नुहोस्</h2>
+    <form method="POST" action="{% url 'register' %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleInputName" class="form-label fw-bold">पूरा नाम</label>
+        <input type="text" name="username" class="form-control" id="exampleInputName" placeholder="तपाईंको नाम लेख्नुहोस्" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label fw-bold">पासवर्ड</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="पासवर्ड लेख्नुहोस्" required>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">साइन अप</button>
+      </div>
+    </form>
+    <p class="text-center text-secondary mt-3" style="font-size: 0.9rem;">
+      पहिले नै खाता छ? <a href="{% url 'login' %}" class="text-primary text-decoration-none">
+        लगइन गर्नुहोस्</a>
+    </p>
+  </div>
+</div>
+
+{% endblock content %}

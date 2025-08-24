@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+{% block title %}
+अपडेट 
+  
+{% endblock title %}
+
+<form class="form form-control bg-dark text-white p-4 mt-4" method="POST" action="{% url 'edit_blog' blog.id %}" 
+enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">
+            छवि</label>
+            {% if blog.image.url %}
+            <img src="{{blog.image.url}}" height="100px" width="100px;" alt="">
+              
+            {% endif %}
+    <input type="file" name="image"  value="{{blog.image.url}}">
+      </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"  >
+        शीर्षक
+    </label>
+    <input type="text" name="title" value="{{blog.title}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"  value="{{blog.subtitle}}">
+        उपशीर्षक
+    </label>
+    <input type="text" name="subtitle" value="{{blog.subtitle}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label"  value="{{blog.description}}">
+        विवरण
+    </label>
+    <input type="text" value="{{blog.description}}"  name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">
+    अपडेट गर्नुहोस्</button>
+</form>
+
+  
+{% endblock content %}

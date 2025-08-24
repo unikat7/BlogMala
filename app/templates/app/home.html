@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+
+  
+{% endblock title %}
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-6 text-center">
+            <a href="{% url 'register' %}">
+                <button class="btn btn-warning btn-lg p-3 w-100">खाता छैन?? यहाँ दर्ता गर्नुहोस्</button>
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-6 text-center">
+            <a href="{% url 'login' %}">
+                <button class="btn btn-info btn-lg p-3 w-100">पहिले नै खाता छ? त्यसपछि साइन अप गर्नुहोस्</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5 d-flex justify-content-center align-items-center flex-column text-center">
+    <div class="col-12 col-md-8">
+        <div class="card p-4 shadow-lg">
+            <div class="card-body">
+                <p class="fw-bold fs-4 text-muted">
+                    "ब्लगिङ भनेको शब्दहरू प्रकाशित गर्ने मात्र होइन। यो आफ्नो आवाज साझा गर्ने र संसारसँग जोडिने कुरा हो।"
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
